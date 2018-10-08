@@ -3,17 +3,41 @@
 
 --- select customer_name from customer_cakes;
 --- select distinct customer_name from customer_cakes;
+
 -- select d_name, prise from cakes where prise >=200;
 -- select customer_name, d_name, quantity from customer_cakes where d_name = 'napoleon';
 -- select customer_name, d_name, quantity from customer_cakes where d_name = 'napoleon' and buy_date = '15-Oct-2018';
 -- select * from customer_cakes where customer_name = 'Aleksey Menshikov' and d_name = 'napoleon';
 -- select * from customer_cakes where d_name in ('napoleon', 'beze')
+
 -- select customer_name, quantity, d_name from customer_cakes order by quantity desc;
+
 -- select * from cakes limit 2;
+
 -- select count(customer_name) from customer_cakes;
 -- select count(distinct customer_name) from customer_cakes;
 -- select count(d_name) from cakes where produce_date = '14-Oct-2018';
+
 -- select sum(quantity) from cakes;
 -- select sum(quantity_cake) from customer_cakes;
+
 -- select avg(quantity_cake) from customer_cakes;
 -- select max(quantity_cake) from customer_cakes;
+
+-- select count(*), customer_name from customer_cakes group by customer_name; - узнаем сколько раз упоминается каждый покупатель
+-- select count(*), d_name from customer_cakes group by d_name; - пирожные
+-- select count(*) as quantity, d_name from customer_cakes group by d_name order by quantity desc; - и посложнее
+
+--  select * from customer_cakes left join cakes on customer_cakes.d_name=cakes.d_name; - тупо сджойним
+-- select customer_cakes.customer_name, customer_cakes.quantity_cake, 
+customer_cakes.d_name, cakes.prise 
+from customer_cakes inner join cakes on customer_cakes.d_name=cakes.d_name;
+
+-- select customer_cakes.customer_name, customer_cakes.quantity_cake, 
+customer_cakes.d_name, cakes.prise 
+from customer_cakes inner join cakes on customer_cakes.d_name=cakes.d_name order by prise desc;
+
+-- select customer_cakes.customer_name, customer_cakes.quantity_cake, 
+customer_cakes.d_name, cakes.prise, (customer_cakes.quantity_cake*prise) as sum_of_all
+from customer_cakes inner join cakes on customer_cakes.d_name=cakes.d_name order by sum_of_all desc;
+
