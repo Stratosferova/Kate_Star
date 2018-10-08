@@ -1,0 +1,19 @@
+--- select * from customer_cakes;
+--- select * from cakes;
+
+--- select customer_name from customer_cakes;
+--- select distinct customer_name from customer_cakes;
+-- select d_name, prise from cakes where prise >=200;
+-- select customer_name, d_name, quantity from customer_cakes where d_name = 'napoleon';
+-- select customer_name, d_name, quantity from customer_cakes where d_name = 'napoleon' and buy_date = '15-Oct-2018';
+-- select * from customer_cakes where customer_name = 'Aleksey Menshikov' and d_name = 'napoleon';
+-- select * from customer_cakes where d_name in ('napoleon', 'beze')
+-- select customer_name, quantity, d_name from customer_cakes order by quantity desc;
+-- select * from cakes limit 2;
+-- select count(customer_name) from customer_cakes;
+-- select count(distinct customer_name) from customer_cakes;
+-- select count(d_name) from cakes where produce_date = '14-Oct-2018';
+-- select sum(quantity) from cakes;
+-- select sum(quantity_cake) from customer_cakes;
+-- select avg(quantity_cake) from customer_cakes;
+-- select max(quantity_cake) from customer_cakes;
